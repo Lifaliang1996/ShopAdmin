@@ -3,7 +3,8 @@
 		<div class="bg"></div>
 		<div class="login">
 			<div class="title">后台管理系统</div>
-			<el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="input2"></el-input>
+			<el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input>
+      <a href="aa">1234</a>
 		</div>
 	</div>
 </template>
@@ -21,6 +22,7 @@ export default {};
 	width: 100vw;
 	height: 100vh;
 }
+
 .bg {
 	position: absolute;
 	top: 50%;
@@ -30,6 +32,7 @@ export default {};
 	background-color: $green;
 	background-image: url("~@/assets/img/login/u2154_state0.png");
 }
+
 .login {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,13 @@
-body {
-  margin: 10;
-}
+@import "variable";
+
 * {
   box-sizing: border-box;
 }
 
-@import "./variable.scss"
+body {
+  margin: 0;
+}
+
+a {
+  color: green;
+}
