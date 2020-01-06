@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" @keyup.enter="login">
 		<div class="bg"></div>
 		<div class="login">
 			<div class="title">后台管理系统</div>
@@ -41,22 +41,22 @@ export default {
 					type: "warning"
 				});
 				return;
-      }
-      if (this.user.name != 'admin') {
-        this.$message({
-          message: "用户名错误",
-          type: 'error'
-        })
-        return
-      }
+			}
+			if (this.user.name != "admin") {
+				this.$message({
+					message: "用户名错误",
+					type: "error"
+				});
+				return;
+			}
 			this.$message({
 				message: "登录成功",
 				type: "success"
-      });
-      this.$store.commit('setUserInfo', this.user)
+			});
+			this.$store.commit("setUserInfo", this.user);
 			setTimeout(() => {
-        this.$router.push('/home')
-      }, 300);
+				this.$router.push("/home");
+			}, 300);
 		}
 	}
 };

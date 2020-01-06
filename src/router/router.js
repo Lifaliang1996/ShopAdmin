@@ -3,27 +3,36 @@ import Router from "vue-router"
 
 Vue.use(Router)
 
-const Login = () => import('@/views/Login.vue')
-const Home = () => import('@/views/Home.vue')
-
 const router =  new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/index'
     },
     {
       path: '/login',
-      name: 'Login',
-      component: Login
+      name: 'login',
+      component: () => import('@/views/Login.vue')
     },
     {
-      path: '/home',
-      name: 'Home',
-      component: Home
+      path: '/index',
+      name: 'index',
+      component: () => import('@/views/Index.vue')
     }
   ],
   mode: 'history'
+})
+
+router.beforeEach((to, from, next) => {
+  if (!localStorage.getItem('userInfo')) {
+    if (to.name == 'login') {
+      next( );
+    } else {
+      next('/login')
+    }
+  } else {
+    next();
+  }
 })
 
 export default router
