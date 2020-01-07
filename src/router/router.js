@@ -7,17 +7,13 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      redirect: '/index'
+      name: 'index',
+      component: () => import('@/views/Index.vue')
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue')
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: () => import('@/views/Index.vue')
     }
   ],
   mode: 'history'

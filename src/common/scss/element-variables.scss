@@ -5,3 +5,32 @@ $--color-primary: #1ABC9C;
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import "~element-ui/packages/theme-chalk/src/index";
+
+.el-menu {
+  background-color: #353441;
+}
+
+.el-menu-item {
+  background-color: #272730;
+  color: #bfbfbf;
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    background-color: #1b1b22;
+    color: #fff;
+    border-left: 3px solid #1ABC9C;
+  }
+}
+
+.el-submenu__title {
+  color: #bfbfbf;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.el-menu-item-group__title {
+  background-color: #272730;
+}
