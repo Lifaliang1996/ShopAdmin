@@ -1,11 +1,7 @@
 <template>
 	<div id="index">
-		<el-menu
-			class="el-menu-vertical-demo"
-			@open="handleOpen"
-			@close="handleClose"
-			:collapse="isCollapse"
-		>
+		<!-- 侧边导航 -->
+		<el-menu class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened>
 			<div class="home-icon">
 				<img v-if="!isCollapse" src="@/assets/img/index/logo.png" alt />
 				<img v-else src="@/assets/img/index/logo-collapse.png" alt />
@@ -26,14 +22,29 @@
 			</el-submenu>
 		</el-menu>
 
-		<div class="right">
+		<div class="right-box">
+			<!-- 顶部导航 -->
 			<div class="header-bar">
-				<div class="sider-trigger" @click="collapse"></div>
+				<div class="header-left">
+					<div class="sider-trigger" @click="collapse"></div>
+				</div>
+				<div class="header-right">
+					<el-dropdown>
+						<span class="dropdown-link">
+							<el-avatar :size="35" class="avatar">user</el-avatar>
+							<i class="el-icon-caret-bottom"></i>
+						</span>
+						<el-dropdown-menu slot="dropdown">
+							<el-dropdown-item>消息中心</el-dropdown-item>
+							<el-dropdown-item>退出登录</el-dropdown-item>
+						</el-dropdown-menu>
+					</el-dropdown>
+				</div>
 			</div>
+
+			<!-- 内容主体 -->
 			<div class="content"></div>
 		</div>
-
-		<router-view></router-view>
 	</div>
 </template>
 
@@ -48,8 +59,6 @@ export default {
 		};
 	},
 	methods: {
-		handleOpen(key, keyPath) {},
-		handleClose(key, keyPath) {},
 		collapse() {
 			this.isCollapse = !this.isCollapse;
 		}
@@ -86,7 +95,7 @@ export default {
 	}
 }
 
-.right {
+.right-box {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -95,15 +104,38 @@ export default {
 	.header-bar {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		padding: 0 20px;
 		width: 100%;
 		height: 60px;
 		background-color: #fff;
 
-		.sider-trigger {
-			width: 30px;
-			height: 50px;
-			background-color: red;
+		.header-left {
+			display: flex;
+			align-items: center;
+			height: 100%;
+
+			.sider-trigger {
+				width: 30px;
+				height: 40px;
+				background-color: red;
+			}
+		}
+
+		.header-right {
+			display: flex;
+			height: 100%;
+
+			.dropdown-link {
+        display: flex;
+        align-items: center;
+        height: 100%;
+				cursor: pointer;
+
+        .avatar {
+          margin-right: 5px;
+        }
+			}
 		}
 	}
 
