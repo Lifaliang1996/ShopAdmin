@@ -1,14 +1,14 @@
 <template>
 	<div id="index">
 		<!-- 侧边导航 -->
-		<el-menu class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened>
+		<el-menu class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened router>
 			<div class="home-icon">
 				<img v-if="!isCollapse" src="@/assets/img/index/logo.png" alt />
 				<img v-else src="@/assets/img/index/logo-collapse.png" alt />
 			</div>
 			<el-submenu v-for="(sub, index) in nav" :index="index.toString()" :key="index">
 				<template slot="title">
-					<i class="el-icon-location"></i>
+					<i :class="sub.icon" class="iconfont icon"></i>
 					<span slot="title">{{ sub.title }}</span>
 				</template>
 				<el-menu-item-group v-for="(group, index) in sub.child" :key="index">
@@ -26,7 +26,9 @@
 			<!-- 顶部导航 -->
 			<div class="header-bar">
 				<div class="header-left">
-					<div class="sider-trigger" @click="collapse"></div>
+					<div class="sider-trigger" :class="{collapse: isCollapse}" @click="collapse">
+						<i class="iconfont icon-zhedie"></i>
+					</div>
 				</div>
 				<div class="header-right">
 					<el-dropdown>
@@ -79,6 +81,10 @@ export default {
 	background-color: #353441;
 }
 
+.icon {
+	margin-right: 5px;
+}
+
 .home-icon {
 	margin: 20px 0 10px;
 	width: 100%;
@@ -95,6 +101,10 @@ export default {
 	}
 }
 
+.collapse {
+	transform: rotate(90deg);
+}
+
 .right-box {
 	display: flex;
 	flex-direction: column;
@@ -105,7 +115,7 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 20px;
+		padding: 0 30px;
 		width: 100%;
 		height: 60px;
 		background-color: #fff;
@@ -116,9 +126,16 @@ export default {
 			height: 100%;
 
 			.sider-trigger {
-				width: 30px;
-				height: 40px;
-				background-color: red;
+				color: $gray2;
+				transition: 0.2s;
+
+				&:hover {
+					color: $green;
+				}
+
+				.iconfont {
+					font-size: 25px;
+				}
 			}
 		}
 
@@ -127,14 +144,14 @@ export default {
 			height: 100%;
 
 			.dropdown-link {
-        display: flex;
-        align-items: center;
-        height: 100%;
+				display: flex;
+				align-items: center;
+				height: 100%;
 				cursor: pointer;
 
-        .avatar {
-          margin-right: 5px;
-        }
+				.avatar {
+					margin-right: 5px;
+				}
 			}
 		}
 	}

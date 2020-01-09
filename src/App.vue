@@ -11,7 +11,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
+@import url('//at.alicdn.com/t/font_1605468_9pw0hp82ugr.css');
+
 body {
   margin: 0;
 }

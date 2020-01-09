@@ -2,6 +2,7 @@ export default [
   // 商品
   {
     title: '商品',
+    icon: 'icon-goods-copy',
     child: [
       {
         title: '商品管理',
@@ -51,6 +52,7 @@ export default [
   // 订单
   {
     title: '订单',
+    icon: 'icon-dingdan',
     child: [
       {
         title: '订单管理',
@@ -96,6 +98,7 @@ export default [
   // 促销
   {
     title: '促销',
+    icon: 'icon-iconfontzhizuobiaozhun02100',
     child: [
       {
         title: '头部类目',
@@ -137,6 +140,7 @@ export default [
   // 库存
   {
     title: '库存',
+    icon: 'icon-kucunqingdan',
     child: [
       {
         title: '',
@@ -157,6 +161,7 @@ export default [
   // 用户
   {
     title: '用户',
+    icon: 'icon-user',
     child: [
       {
         title: '',
@@ -173,6 +178,7 @@ export default [
   // 运营
   {
     title: '运营',
+    icon: 'icon-yunyingzhongxin',
     child: [
       {
         title: '',
@@ -193,6 +199,7 @@ export default [
   // 统计
   {
     title: '统计',
+    icon:'icon-tongji',
     child: [
       {
         title: '',
