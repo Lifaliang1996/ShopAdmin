@@ -1,12 +1,17 @@
 <template>
 	<div id="index">
 		<!-- 侧边导航 -->
-		<el-menu class="el-menu-vertical-demo" :collapse="isCollapse" unique-opened router>
+		<el-menu
+			class="el-menu-vertical-demo"
+			:collapse="isCollapse"
+			unique-opened
+			router
+		>
 			<div class="home-icon">
 				<img v-if="!isCollapse" src="@/assets/img/index/logo.png" alt />
 				<img v-else src="@/assets/img/index/logo-collapse.png" alt />
 			</div>
-			<el-submenu v-for="(sub, index) in nav" :index="index.toString()" :key="index">
+			<el-submenu v-for="(sub, index) in nav" :index="sub.title" :key="index">
 				<template slot="title">
 					<i :class="sub.icon" class="iconfont icon"></i>
 					<span slot="title">{{ sub.title }}</span>
@@ -17,6 +22,7 @@
 						v-for="(item, index) in group.content"
 						:index="item.path"
 						:key="index"
+						@click="select(sub.title, item.name)"
 					>{{ item.name }}</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
@@ -26,8 +32,19 @@
 			<!-- 顶部导航 -->
 			<div class="header-bar">
 				<div class="header-left">
+					<!-- 折叠按钮 -->
 					<div class="sider-trigger" :class="{collapse: isCollapse}" @click="collapse">
 						<i class="iconfont icon-zhedie"></i>
+					</div>
+
+					<div class="breadcrumb">
+						<el-breadcrumb separator="/">
+							<el-breadcrumb-item @click.native="selectHome" to="/home">
+								<i class="iconfont icon-iconfontzhizuobiaozhun023101"></i>
+								首页
+							</el-breadcrumb-item>
+							<el-breadcrumb-item v-for="(title, index) in activeIndex" :key="index">{{ title }}</el-breadcrumb-item>
+						</el-breadcrumb>
 					</div>
 				</div>
 				<div class="header-right">
@@ -57,13 +74,22 @@ export default {
 	data() {
 		return {
 			nav: nav,
-			isCollapse: false
+			isCollapse: false,
+      activeIndex: [], // 当前活跃路由标题
 		};
 	},
 	methods: {
 		collapse() {
 			this.isCollapse = !this.isCollapse;
-		}
+		},
+    // 当前路由的title
+		select(...title) {
+			this.activeIndex = title;
+    },
+    // 选中首页,取消其它的选择
+    selectHome () {
+      this.activeIndex = []
+    }
 	}
 };
 </script>
@@ -135,6 +161,14 @@ export default {
 
 				.iconfont {
 					font-size: 25px;
+				}
+			}
+
+			.breadcrumb {
+				color: $gray2;
+				margin-left: 35px;
+				.iconfont {
+					font-size: 14px;
 				}
 			}
 		}

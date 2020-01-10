@@ -4,6 +4,14 @@ export default [
     name: 'index',
     component: () => import('@/views/Index.vue'),
     children: [
+      {
+        path: '/',
+        redirect: 'home'
+      },
+      {
+        name: 'home',
+        path: 'home'
+      },
       // 商品
       {
         name: 'promotion_list',

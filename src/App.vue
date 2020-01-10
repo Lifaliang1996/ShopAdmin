@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style>
-@import url('//at.alicdn.com/t/font_1605468_9pw0hp82ugr.css');
+@import url('//at.alicdn.com/t/font_1605468_wukyvo1tgua.css');
 
 body {
   margin: 0;
