@@ -125,7 +125,7 @@ export default {
 			height: 45px;
 			line-height: 100%;
 			border-radius: 3px;
-			border: 1px solid $gray2;
+			border: 1px solid $gray3;
 			outline: none;
 			color: $gray2;
 

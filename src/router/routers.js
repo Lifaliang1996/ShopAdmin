@@ -14,66 +14,66 @@ export default [
       },
       // 商品
       {
-        name: 'promotion_list',
-        path: 'promotion/list'
+        name: 'goods_list',
+        path: 'goods/list'
       },
       {
-        name: 'promotion_add',
-        path: 'promotion/add'
+        name: 'goods_add',
+        path: 'goods/add'
       },
       {
-        name: 'promotion_recycle',
-        path: 'promotion/recycle'
+        name: 'goods_recycle',
+        path: 'goods/recycle'
       },
       {
-        name: 'promotion_comment',
-        path: 'promotion/comment'
+        name: 'goods_comment',
+        path: 'goods/comment'
       },
       {
-        name: 'promotion_category',
-        path: 'promotion/category'
+        name: 'goods_category',
+        path: 'goods/category'
       },
       {
-        name: 'promotion_type',
-        path: 'promotion/type'
+        name: 'goods_type',
+        path: 'goods/type'
       },
       {
-        name: 'promotion_brand',
-        path: 'promotion/brand'
+        name: 'goods_brand',
+        path: 'goods/brand'
       },
       {
-        name: 'promotion_images',
-        path: 'promotion/images'
+        name: 'goods_images',
+        path: 'goods/images'
       },
 
       // 订单
       {
-        name: 'promotion_list',
-        path: 'promotion/list'
+        name: 'order_list',
+        path: 'order/list'
       },
       {
-        name: 'promotion_receipt',
-        path: 'promotion/receipt'
+        name: 'order_receipt',
+        path: 'order/receipt'
       },
       {
-        name: 'promotion_setting',
-        path: 'promotion/promotion_setting'
+        name: 'order_setting',
+        path: 'order/order_setting'
       },
       {
-        name: 'return_goods',
-        path: 'promotion/return_goods'
+        name: 'return_order',
+        path: 'order/return_order'
       },
       {
-        name: 'promotion_refund',
-        path: 'promotion/refund'
+        name: 'order_refund',
+        path: 'order/refund'
       },
       {
         name: 'return_cause',
-        path: 'promotion/return_cause'
+        path: 'order/return_cause'
       },
       {
-        name: 'promotion_address',
-        path: 'promotion/address'
+        name: 'order_address',
+        path: 'order/address'
       },
 
       // 促销
@@ -90,8 +90,8 @@ export default [
         path: 'promotion/list'
       },
       {
-        name: 'promotion_add_goods',
-        path: 'promotion/add_goods'
+        name: 'promotion_add_promotion',
+        path: 'promotion/add_promotion'
       },
       {
         name: 'promotion_title_list',

@@ -9,19 +9,19 @@ export default [
         content: [
           {
             name: '商品列表',
-            path: '/promotion/list'
+            path: '/goods/list'
           },
           {
             name: '添加商品',
-            path: '/promotion/add'
+            path: '/goods/add'
           },
           {
             name: '商品回收站',
-            path: '/promotion/recycle'
+            path: '/goods/recycle'
           },
           {
             name: '商品评价',
-            path: '/promotion/comment'
+            path: '/goods/comment'
           }
         ]
       },
@@ -30,19 +30,19 @@ export default [
         content: [
           {
             name: '商品分类',
-            path: '/promotion/category'
+            path: '/goods/category'
           },
           {
             name: '商品类型',
-            path: '/promotion/type'
+            path: '/goods/type'
           },
           {
             name: '品牌管理',
-            path: '/promotion/brand'
+            path: '/goods/brand'
           },
           {
             name: '商品图片库',
-            path: '/promotion/images'
+            path: '/goods/images'
           },
         ]
       }
@@ -59,15 +59,15 @@ export default [
         content: [
           {
             name: '订单列表',
-            path: '/promotion/list'
+            path: '/order/list'
           },
           {
             name: '确认收货',
-            path: '/promotion/receipt'
+            path: '/order/receipt'
           },
           {
             name: '订单设置',
-            path: '/promotion/promotion_setting'
+            path: '/order/order_setting'
           }
         ]
       },
@@ -76,19 +76,19 @@ export default [
         content: [
           {
             name: '退货申请处理',
-            path: '/promotion/return_goods'
+            path: '/order/return_order'
           },
           {
             name: '退款申请处理',
-            path: '/promotion/refund'
+            path: '/order/refund'
           },
           {
             name: '退货原因设置',
-            path: '/promotion/return_cause'
+            path: '/order/return_cause'
           },
           {
             name: '发货点信息管理',
-            path: '/promotion/address'
+            path: '/order/address'
           },
         ]
       }
@@ -122,7 +122,7 @@ export default [
           },
           {
             name: '添加拼团商品',
-            path: '/promotion/add_goods'
+            path: '/promotion/add_promotion'
           },
           {
             name: '成团管理',

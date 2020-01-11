@@ -6,21 +6,23 @@
 			:collapse="isCollapse"
 			unique-opened
 			router
+			:default-active="defaultActive"
 		>
 			<div class="home-icon">
 				<img v-if="!isCollapse" src="@/assets/img/index/logo.png" alt />
 				<img v-else src="@/assets/img/index/logo-collapse.png" alt />
 			</div>
-			<el-submenu v-for="(sub, index) in nav" :index="sub.title" :key="index">
+			<el-submenu v-for="(sub, index) in nav" :index="index.toString()" :key="index">
 				<template slot="title">
 					<i :class="sub.icon" class="iconfont icon"></i>
 					<span slot="title">{{ sub.title }}</span>
 				</template>
 				<el-menu-item-group v-for="(group, index) in sub.child" :key="index">
-					<span v-if="group.title !== ''" slot="title">{{ group.title }}</span>
+					<span v-if="group.title" slot="title">{{ group.title }}</span>
 					<el-menu-item
 						v-for="(item, index) in group.content"
 						:index="item.path"
+            :route="{path: item.path}"
 						:key="index"
 						@click="select(sub.title, item.name)"
 					>{{ item.name }}</el-menu-item>
@@ -62,7 +64,8 @@
 			</div>
 
 			<!-- 内容主体 -->
-			<div class="content"></div>
+			<div class="content">
+      </div>
 		</div>
 	</div>
 </template>
@@ -75,21 +78,26 @@ export default {
 		return {
 			nav: nav,
 			isCollapse: false,
-      activeIndex: [], // 当前活跃路由标题
+			activeIndex: [], // 当前活跃路由标题
 		};
-	},
+  },
+  computed: {
+    defaultActive() {
+      return this.$route.path
+    }
+  },
 	methods: {
 		collapse() {
 			this.isCollapse = !this.isCollapse;
 		},
-    // 当前路由的title
+		// 当前路由的title
 		select(...title) {
 			this.activeIndex = title;
-    },
-    // 选中首页,取消其它的选择
-    selectHome () {
-      this.activeIndex = []
-    }
+		},
+		// 选中首页,取消其它的选择
+		selectHome() {
+			this.activeIndex = [];
+		}
 	}
 };
 </script>
@@ -101,11 +109,10 @@ export default {
 	display: flex;
 }
 
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-	width: 200px;
-	height: 100vh;
-	background-color: #353441;
-}
+// .el-menu-vertical-demo:not(.el-menu--collapse) {
+// 	width: 230px;
+// 	height: 100vh;
+// }
 
 .icon {
 	margin-right: 5px;
