@@ -10,7 +10,8 @@ export default [
       },
       {
         name: 'home',
-        path: 'home'
+        path: 'home',
+        component: () => import('@/views/home/Home.vue')
       },
       // 商品
       {

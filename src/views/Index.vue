@@ -22,9 +22,8 @@
 					<el-menu-item
 						v-for="(item, index) in group.content"
 						:index="item.path"
-            :route="{path: item.path}"
+						:route="{path: item.path}"
 						:key="index"
-						@click="select(sub.title, item.name)"
 					>{{ item.name }}</el-menu-item>
 				</el-menu-item-group>
 			</el-submenu>
@@ -41,7 +40,7 @@
 
 					<div class="breadcrumb">
 						<el-breadcrumb separator="/">
-							<el-breadcrumb-item @click.native="selectHome" to="/home">
+							<el-breadcrumb-item to="/home">
 								<i class="iconfont icon-iconfontzhizuobiaozhun023101"></i>
 								首页
 							</el-breadcrumb-item>
@@ -65,7 +64,8 @@
 
 			<!-- 内容主体 -->
 			<div class="content">
-      </div>
+				<router-view></router-view>
+			</div>
 		</div>
 	</div>
 </template>
@@ -77,26 +77,23 @@ export default {
 	data() {
 		return {
 			nav: nav,
-			isCollapse: false,
-			activeIndex: [], // 当前活跃路由标题
+			isCollapse: false
 		};
-  },
-  computed: {
-    defaultActive() {
-      return this.$route.path
+	},
+	computed: {
+		defaultActive() {
+			return this.$route.path;
+		},
+		activeIndex() {
+      nav.find((item) => {
+        item.child
+      })
+      return 1
     }
-  },
+	},
 	methods: {
 		collapse() {
 			this.isCollapse = !this.isCollapse;
-		},
-		// 当前路由的title
-		select(...title) {
-			this.activeIndex = title;
-		},
-		// 选中首页,取消其它的选择
-		selectHome() {
-			this.activeIndex = [];
 		}
 	}
 };
@@ -108,11 +105,6 @@ export default {
 	height: 100vh;
 	display: flex;
 }
-
-// .el-menu-vertical-demo:not(.el-menu--collapse) {
-// 	width: 230px;
-// 	height: 100vh;
-// }
 
 .icon {
 	margin-right: 5px;
@@ -152,6 +144,7 @@ export default {
 		width: 100%;
 		height: 60px;
 		background-color: #fff;
+		border-bottom: $border;
 
 		.header-left {
 			display: flex;
@@ -174,6 +167,7 @@ export default {
 			.breadcrumb {
 				color: $gray2;
 				margin-left: 35px;
+
 				.iconfont {
 					font-size: 14px;
 				}
@@ -200,7 +194,9 @@ export default {
 	.content {
 		width: 100%;
 		height: 100%;
-		background-color: #f5f5f5;
+		padding: 20px 15%;
+		background-color: #f9f9f9;
+		overflow: auto;
 	}
 }
 </style>>

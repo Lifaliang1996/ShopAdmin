@@ -7,4 +7,27 @@
 body {
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
   margin: 0;
+  color: #666666;
+}
+
+p {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.link {
+  transition: 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: $green !important;
+  }
 }
