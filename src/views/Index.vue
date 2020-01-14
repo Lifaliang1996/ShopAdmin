@@ -17,15 +17,12 @@
 					<i :class="sub.icon" class="iconfont icon"></i>
 					<span slot="title">{{ sub.title }}</span>
 				</template>
-				<el-menu-item-group v-for="(group, index) in sub.child" :key="index">
-					<span v-if="group.title" slot="title">{{ group.title }}</span>
-					<el-menu-item
-						v-for="(item, index) in group.content"
-						:index="item.path"
-						:route="{path: item.path}"
-						:key="index"
-					>{{ item.name }}</el-menu-item>
-				</el-menu-item-group>
+				<el-menu-item
+					v-for="(item, index) in sub.child"
+					:index="item.path"
+					:route="{path: item.path}"
+					:key="index"
+				>{{ item.name }}</el-menu-item>
 			</el-submenu>
 		</el-menu>
 
@@ -85,11 +82,19 @@ export default {
 			return this.$route.path;
 		},
 		activeIndex() {
-      nav.find((item) => {
-        item.child
-      })
-      return 1
-    }
+			let path = this.$route.path;
+			if (path == "/home") return [];
+			let name = "";
+			let obj = nav.find(item => {
+				for (let val of item.child) {
+					if (path == val.path) {
+						name = val.name;
+						return true;
+					}
+				}
+			});
+			return [obj.title, name];
+		}
 	},
 	methods: {
 		collapse() {

@@ -7,7 +7,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
 
 .el-menu {
-  min-width: 210px;
+  width: 210px;
   background-color: #353441;
   overflow: hidden;
 }

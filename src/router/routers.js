@@ -16,7 +16,8 @@ export default [
       // 商品
       {
         name: 'goods_list',
-        path: 'goods/list'
+        path: 'goods/list',
+        component: () => import('@/views/goods/List.vue')
       },
       {
         name: 'goods_add',
