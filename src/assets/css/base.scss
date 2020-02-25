@@ -31,3 +31,17 @@ p {
     color: $green !important;
   }
 }
+
+.text-button {
+  color: $green;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.price {
+  &::before {
+    content: "￥";
+  }
+}
