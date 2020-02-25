@@ -11,6 +11,11 @@ export default new Vuex.Store({
     setUserInfo(state, userInfo) {
       state.userInfo = userInfo
       localStorage.setItem('userInfo', userInfo)
+    },
+
+    clearUserInfo(state) {
+      state.userInfo = {}
+      localStorage.deleted('userInfo')
     }
   }
 })
