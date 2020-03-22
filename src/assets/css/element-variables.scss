@@ -40,3 +40,12 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 .el-menu-item-group__title {
   background-color: #272730;
 }
+
+.el-step__title.is-success {
+  color: #1ABC9C;
+}
+
+.el-step__head.is-success {
+  color: #1ABC9C;
+  border-color: #1ABC9C;
+}

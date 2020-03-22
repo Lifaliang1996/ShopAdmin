@@ -21,7 +21,8 @@ export default [
       },
       {
         name: 'goods_add',
-        path: 'goods/add'
+        path: 'goods/add',
+        component: () => import('@/views/goods/AddGoods.vue')
       },
       {
         name: 'goods_recycle',
